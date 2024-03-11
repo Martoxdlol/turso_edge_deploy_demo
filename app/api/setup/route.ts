@@ -1,11 +1,14 @@
+import { unstable_noStore } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { fetchTursoApi } from "~/lib/utils";
 
+export const runtime = 'edge'
+
 export async function GET(request: NextRequest) {
+    unstable_noStore()
 
     const { groups } = await fetchTursoApi<{ groups: any[] }>('https://api.turso.tech/v1/organizations/{organizationName}/groups')
     const { databases } = await fetchTursoApi<{ databases: any[] }>('https://api.turso.tech/v1/organizations/{organizationName}/databases')
-
 
     const { group: group1 } = await fetchTursoApi<{ group: any }>('https://api.turso.tech/v1/organizations/{organizationName}/groups', {
         method: 'POST',
