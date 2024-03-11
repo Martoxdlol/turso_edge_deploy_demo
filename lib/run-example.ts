@@ -16,7 +16,7 @@ export function runExample() {
             sendPartial('Create jwt', timeJWT)
 
             const client = createClient({
-                url: `libsql://db1-martoxdlol.turso.io`,
+                url: `libsql://db1-${process.env.TURSO_ORGANIZATION_NAME!}.turso.io`,
                 authToken: token,
             });
 
