@@ -4,6 +4,7 @@ import { NextRequest } from "next/server";
 import { fetchTursoApi, runTimedFunction } from "~/lib/utils";
 
 export const runtime = 'edge'
+export const preferredRegion = ['sfo1'];
 
 export async function GET(request: NextRequest) {
     unstable_noStore()
