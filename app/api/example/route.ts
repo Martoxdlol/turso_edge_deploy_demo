@@ -1,8 +1,6 @@
-import { createClient } from "@libsql/client/web";
 import { unstable_noStore } from "next/cache";
 import { NextRequest } from "next/server";
 import { runExample } from "~/lib/run-example";
-import { fetchTursoApi, runTimedFunction } from "~/lib/utils";
 
 export const runtime = 'edge'
 export const preferredRegion = ['sfo1'];

@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { runExample } from "~/lib/run-example"
 
 export const runtime = 'nodejs'
+export const preferredRegion = ['sfo1'];
 
 export async function GET(request: NextRequest) {
     unstable_noStore()
