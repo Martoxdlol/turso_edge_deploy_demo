@@ -4,9 +4,10 @@ import { fetchTursoApi, runTimedFunction } from "./utils";
 export function runExample() {
     const stream = new ReadableStream({
         start: async (controller) => {
+            controller.enqueue('[\n')
 
             function sendPartial(action: string, time: number) {
-                controller.enqueue(JSON.stringify({ action, time }) + '\n')
+                controller.enqueue(JSON.stringify({ action, time }, null, 2) + ',\n')
             }
 
             sendPartial('Start', 0)
@@ -79,6 +80,8 @@ export function runExample() {
 
             sendPartial('Commit transaction', tt4)
 
+
+            controller.enqueue(']\n')
             controller.close()
         }
     })
