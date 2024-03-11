@@ -23,7 +23,7 @@ export function runExample() {
             });
 
             const [_, timeDelete] = await runTimedFunction(async () => await client.execute({
-                sql: 'DROP TABLE users;',
+                sql: 'DROP TABLE IF EXISTS users;',
                 args: []
             }))
 
