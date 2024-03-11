@@ -9,6 +9,8 @@ export function runExample() {
                 controller.enqueue(JSON.stringify({ action, time }) + '\n')
             }
 
+            sendPartial('Start', 0)
+
             const [{ jwt: token }, timeJWT] = await runTimedFunction(async () => await fetchTursoApi<{ jwt: string }>('https://api.turso.tech/v1/organizations/{organizationName}/databases/db1/auth/tokens', {
                 method: 'POST',
             }))
