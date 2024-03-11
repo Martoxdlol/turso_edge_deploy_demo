@@ -7,7 +7,10 @@ export function runExample() {
             controller.enqueue('[\n')
 
             function sendPartial(action: string, time: number) {
-                controller.enqueue(JSON.stringify({ action, time }, null, 2) + ',\n')
+                const lines = (JSON.stringify({ action, time }, null, 2) + ',').split('\n')
+                for (const line of lines) {
+                    controller.enqueue('  ' + line + '\n')
+                }
             }
 
             sendPartial('Start', 0)
