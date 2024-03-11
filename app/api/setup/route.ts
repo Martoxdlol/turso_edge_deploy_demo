@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
         method: 'POST',
         body: JSON.stringify({
             extensions: 'all',
-            location: 'lax', // eze (ARG)
+            location: 'sjc', // eze (ARG)
             name: 'group1'
         })
     })
